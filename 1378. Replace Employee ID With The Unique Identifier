@@ -1,0 +1,3 @@
+SELECT unique_id , name FROM Employees e WITH(NOLOCK)
+LEFT JOIN Employeeuni eu WITH(NOLOCK)
+ON(e.id = eu.id)
