@@ -1,0 +1,5 @@
+SELECT emp.name, bo.bonus
+FROM Employee emp WITH(NOLOCK)
+LEFT JOIN Bonus bo WITH(NOLOCK)
+ON(emp.empid = bo.empid )
+WHERE (bo.bonus < 1000 OR bo.bonus IS NULL)
