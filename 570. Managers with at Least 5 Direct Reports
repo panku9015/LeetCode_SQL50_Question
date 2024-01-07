@@ -1,0 +1,8 @@
+# Solution 1
+SELECT name 
+FROM Employee  WITH(NOLOCK)
+WHERE id in
+(SELECT managerId 
+FROM Employee WITH(NOLOCK) 
+GROUP BY managerId 
+HAVING COUNT(managerId) >= 5 )
