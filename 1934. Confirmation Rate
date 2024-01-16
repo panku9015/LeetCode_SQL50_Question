@@ -1,0 +1,7 @@
+
+SELECT Signups.user_id, CAST(CAST(SUM(IIF(c.Action = 'confirmed', 1, 0)) AS DECIMAL(5, 2)) / CAST(COUNT(*)AS DECIMAL(5, 2)) AS DECIMAL(5, 2)) AS confirmation_rate
+    FROM Signups
+    LEFT JOIN Confirmations c
+    ON Signups.user_id = c.user_id
+    GROUP BY Signups.user_id
+
